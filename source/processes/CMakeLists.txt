@@ -28,6 +28,8 @@ geant4_global_library_target(NAME G4processes
     electromagnetic/standard/sources.cmake
     electromagnetic/utils/sources.cmake
     electromagnetic/xrays/sources.cmake
+    exotic/cross_sections/sources.cmake
+    exotic/models/sexaquark/sources.cmake
     hadronic/cross_sections/sources.cmake
     hadronic/management/sources.cmake
     hadronic/models/abla/sources.cmake

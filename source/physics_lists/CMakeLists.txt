@@ -5,6 +5,7 @@ geant4_global_library_target(NAME G4physicslists
     builders/sources.cmake
 	  constructors/decay/sources.cmake
 	  constructors/electromagnetic/sources.cmake
+	  constructors/exotic/sources.cmake
 	  constructors/factory/sources.cmake
 	  constructors/gamma_lepto_nuclear/sources.cmake
 	  constructors/hadron_elastic/sources.cmake
@@ -12,5 +13,5 @@ geant4_global_library_target(NAME G4physicslists
 	  constructors/ions/sources.cmake
 	  constructors/limiters/sources.cmake
 	  constructors/stopping/sources.cmake
-    lists/sources.cmake
+      lists/sources.cmake
 	  util/sources.cmake)

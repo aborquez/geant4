@@ -1,19 +1,25 @@
 # ---------------------------------------------------------------------------
-# GNUmakefile for physics_lists/lists library.  Gunter Folger 25-Oct-2006.
+# GNUmakefile for physics_lists/constructors/factory library.
+#  Gunter Folger 10-Jan-2012.
 # ---------------------------------------------------------------------------
 
-name := G4phys_lists
+name := G4phys_ctor_exotic
 
 ifndef G4INSTALL
-  G4INSTALL = ../../..
+  G4INSTALL = ../../../..
 endif
 
 include $(G4INSTALL)/config/architecture.gmk
 
 CPPFLAGS += -DG4PROCESSES_EXPORT
 
+ifdef G4LIB_BUILD_EXPAT
+CPPFLAGS += -I$(G4BASE)/externals/expat/include
+endif
+
 CPPFLAGS += -I$(G4BASE)/global/management/include \
             -I$(G4BASE)/global/HEPRandom/include \
+            -I$(G4BASE)/global/HEPNumerics/include \
             -I$(G4BASE)/global/HEPGeometry/include \
             -I$(G4BASE)/geometry/volumes/include \
             -I$(G4BASE)/geometry/management/include \
@@ -21,7 +27,6 @@ CPPFLAGS += -I$(G4BASE)/global/management/include \
             -I$(G4BASE)/geometry/navigation/include \
             -I$(G4BASE)/intercoms/include \
             -I$(G4BASE)/track/include \
-            -I$(G4BASE)/event/include \
             -I$(G4BASE)/particles/shortlived/include \
             -I$(G4BASE)/particles/management/include \
             -I$(G4BASE)/particles/leptons/include \
@@ -31,61 +36,37 @@ CPPFLAGS += -I$(G4BASE)/global/management/include \
             -I$(G4BASE)/particles/hadrons/barions/include \
             -I$(G4BASE)/particles/hadrons/ions/include \
             -I$(G4BASE)/run/include \
-            -I$(G4BASE)/tracking/include \
-            -I$(G4BASE)/digits_hits/hits/include \
-            -I$(G4BASE)/digits_hits/digits/include \
-	          -I$(G4BASE)/physics_lists/builders/include \
-            -I$(G4BASE)/physics_lists/constructors/decay/include \
-            -I$(G4BASE)/physics_lists/constructors/electromagnetic/include \
-            -I$(G4BASE)/physics_lists/constructors/exotic/include \
-            -I$(G4BASE)/physics_lists/constructors/factory/include \
-            -I$(G4BASE)/physics_lists/constructors/gamma_lepto_nuclear/include \
-            -I$(G4BASE)/physics_lists/constructors/hadron_elastic/include \
-            -I$(G4BASE)/physics_lists/constructors/hadron_inelastic/include \
-            -I$(G4BASE)/physics_lists/constructors/ions/include \
-            -I$(G4BASE)/physics_lists/constructors/limiters/include \
-            -I$(G4BASE)/physics_lists/constructors/stopping/include \
+            -I$(G4BASE)/physics_lists/builders/include \
             -I$(G4BASE)/physics_lists/util/include \
+            -I$(G4BASE)/physics_lists/constructors/factory/include \
             -I$(G4BASE)/processes/management/include \
+            -I$(G4BASE)/processes/transportation/include \
             -I$(G4BASE)/processes/decay/include \
             -I$(G4BASE)/processes/cuts/include \
-            -I$(G4BASE)/processes/optical/include \
-            -I$(G4BASE)/processes/transportation/include \
-            -I$(G4BASE)/processes/electromagnetic/dna/include \
-            -I$(G4BASE)/processes/electromagnetic/lowenergy/include \
-            -I$(G4BASE)/processes/electromagnetic/highenergy/include \
-            -I$(G4BASE)/processes/electromagnetic/standard/include \
-            -I$(G4BASE)/processes/electromagnetic/muons/include \
-            -I$(G4BASE)/processes/electromagnetic/utils/include \
-            -I$(G4BASE)/processes/electromagnetic/xrays/include \
             -I$(G4BASE)/processes/exotic/cross_sections/include \
+            -I$(G4BASE)/processes/exotic/models/sexaquark/include \
             -I$(G4BASE)/processes/hadronic/cross_sections/include \
             -I$(G4BASE)/processes/hadronic/stopping/include \
             -I$(G4BASE)/processes/hadronic/management/include \
             -I$(G4BASE)/processes/hadronic/processes/include \
             -I$(G4BASE)/processes/hadronic/util/include \
-            -I$(G4BASE)/physics_lists/builders/include \
-            -I$(G4BASE)/physics_lists/constructors/limiters/include \
-            -I$(G4BASE)/processes/exotic/models/sexaquark/include \
             -I$(G4BASE)/processes/hadronic/models/binary_cascade/include \
             -I$(G4BASE)/processes/hadronic/models/cascade/cascade/include \
-            -I$(G4BASE)/processes/hadronic/models/cascade/evaporation/include \
-            -I$(G4BASE)/processes/hadronic/models/cascade/utils/include \
+            -I$(G4BASE)/processes/hadronic/models/qmd/include \
             -I$(G4BASE)/processes/hadronic/models/coherent_elastic/include \
             -I$(G4BASE)/processes/hadronic/models/de_excitation/evaporation/include \
             -I$(G4BASE)/processes/hadronic/models/de_excitation/fermi_breakup/include \
             -I$(G4BASE)/processes/hadronic/models/de_excitation/fission/include \
-            -I$(G4BASE)/processes/hadronic/models/de_excitation/gem_evaporation/include \
             -I$(G4BASE)/processes/hadronic/models/de_excitation/handler/include \
             -I$(G4BASE)/processes/hadronic/models/de_excitation/management/include \
             -I$(G4BASE)/processes/hadronic/models/de_excitation/multifragmentation/include \
             -I$(G4BASE)/processes/hadronic/models/de_excitation/photon_evaporation/include \
             -I$(G4BASE)/processes/hadronic/models/de_excitation/util/include \
+            -I$(G4BASE)/processes/hadronic/models/fission/include \
             -I$(G4BASE)/processes/hadronic/models/im_r_matrix/include \
             -I$(G4BASE)/processes/hadronic/models/inclxx/utils/include \
             -I$(G4BASE)/processes/hadronic/models/inclxx/incl_physics/include \
             -I$(G4BASE)/processes/hadronic/models/inclxx/interface/include \
-            -I$(G4BASE)/processes/hadronic/models/isotope_production/include \
             -I$(G4BASE)/processes/hadronic/models/lend/include \
             -I$(G4BASE)/processes/hadronic/models/lepto_nuclear/include \
             -I$(G4BASE)/processes/hadronic/models/particle_hp/include \

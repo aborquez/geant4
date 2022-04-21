@@ -52,12 +52,13 @@ CPPFLAGS += \
             -I$(G4BASE)/digits_hits/utils/include \
             -I$(G4BASE)/event/include \
             -I$(G4BASE)/intercoms/include \
-	    -I$(G4BASE)/geometry/biasing/include \
+	          -I$(G4BASE)/geometry/biasing/include \
             -I$(G4BASE)/graphics_reps/include \
             -I$(G4BASE)/processes/hadronic/management/include \
             -I$(G4BASE)/processes/hadronic/models/cascade/cascade/include \
             -I$(G4BASE)/processes/hadronic/util/include \
             -I$(G4BASE)/particles/bosons/include \
+            -I$(G4BASE)/particles/exotic/include \
             -I$(G4BASE)/particles/leptons/include \
             -I$(G4BASE)/particles/hadrons/mesons/include \
             -I$(G4BASE)/particles/hadrons/barions/include \
@@ -66,6 +67,6 @@ CPPFLAGS += \
 include $(G4INSTALL)/config/common.gmk
 
 .PHONY: global
- 
+
 global: lib
 

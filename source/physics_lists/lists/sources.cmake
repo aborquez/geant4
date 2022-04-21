@@ -66,6 +66,7 @@ geant4_module_link_libraries(G4phys_lists
     G4partman
     G4phys_ctor_decay
     G4phys_ctor_em
+    G4phys_ctor_exotic
     G4phys_ctor_factory
     G4phys_ctor_glnuclear
     G4phys_ctor_helastic
@@ -84,6 +85,8 @@ geant4_module_link_libraries(G4phys_lists
     G4emlowenergy
     G4emstandard
     G4emutils
+    G4exotic_xsect
+    G4exotic_sexaquark
     G4had_par_hp
     G4had_preequ_exciton
     G4had_string_diff

@@ -19,10 +19,11 @@ endif
 
 include $(G4INSTALL)/config/architecture.gmk
 
-SUBDIRS  = lists 
+SUBDIRS  = lists
 SUBDIRS += builders
 SUBDIRS += constructors/decay
 SUBDIRS += constructors/electromagnetic
+SUBDIRS += constructors/exotic
 SUBDIRS += constructors/factory
 SUBDIRS += constructors/gamma_lepto_nuclear
 SUBDIRS += constructors/hadron_elastic
@@ -32,10 +33,11 @@ SUBDIRS += constructors/limiters
 SUBDIRS += constructors/stopping
 SUBDIRS += util
 
-SUBLIBS  = G4phys_lists 
-SUBLIBS += G4phys_builders 
+SUBLIBS  = G4phys_lists
+SUBLIBS += G4phys_builders
 SUBLIBS += G4phys_ctor_decay
 SUBLIBS += G4phys_ctor_em
+SUBLIBS += G4phys_ctor_exotic
 SUBLIBS += G4phys_ctor_factory
 SUBLIBS += G4phys_ctor_glnuclear
 SUBLIBS += G4phys_ctor_helastic

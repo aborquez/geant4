@@ -62,6 +62,7 @@ ifndef INCFLAGS
               -I$(G4BASE)/particles/management/include \
               -I$(G4BASE)/particles/adjoint/include \
               -I$(G4BASE)/particles/bosons/include \
+              -I$(G4BASE)/particles/exotic/include \
               -I$(G4BASE)/particles/leptons/include \
               -I$(G4BASE)/particles/hadrons/barions/include \
               -I$(G4BASE)/particles/hadrons/ions/include \
@@ -71,6 +72,7 @@ ifndef INCFLAGS
               -I$(G4BASE)/physics_lists/builders/include \
               -I$(G4BASE)/physics_lists/constructors/decay/include \
               -I$(G4BASE)/physics_lists/constructors/electromagnetic/include \
+              -I$(G4BASE)/physics_lists/constructors/exotic/include \
               -I$(G4BASE)/physics_lists/constructors/factory/include \
               -I$(G4BASE)/physics_lists/constructors/gamma_lepto_nuclear/include \
               -I$(G4BASE)/physics_lists/constructors/hadron_elastic/include \
@@ -106,6 +108,8 @@ ifndef INCFLAGS
               -I$(G4BASE)/processes/electromagnetic/dna/molecules/types/include \
               -I$(G4BASE)/processes/electromagnetic/pii/include \
               -I$(G4BASE)/processes/electromagnetic/polarisation/include \
+              -I$(G4BASE)/processes/exotic/cross_sections/include \
+              -I$(G4BASE)/processes/exotic/models/sexaquark/include \
               -I$(G4BASE)/processes/hadronic/cross_sections/include \
               -I$(G4BASE)/processes/hadronic/management/include \
               -I$(G4BASE)/processes/hadronic/models/abla/include \
