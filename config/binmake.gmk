@@ -37,7 +37,7 @@ ifndef SHAREDLIBS
 endif
 ifneq (,$(findstring WIN32-VC,$(G4SYSTEM)))
   SHAREDLIBS := $(shell test -f $(G4LIB)/$(G4SYSTEM)/G4global.$(SHEXT) && echo yes)
-endif  
+endif
 
 ifndef INCFLAGS
  ifeq ($(G4INCLUDE_EXEC),1)
@@ -62,6 +62,7 @@ ifndef INCFLAGS
               -I$(G4BASE)/particles/management/include \
               -I$(G4BASE)/particles/adjoint/include \
               -I$(G4BASE)/particles/bosons/include \
+              -I$(G4BASE)/particles/exotic/include \
               -I$(G4BASE)/particles/leptons/include \
               -I$(G4BASE)/particles/hadrons/barions/include \
               -I$(G4BASE)/particles/hadrons/ions/include \
@@ -71,6 +72,7 @@ ifndef INCFLAGS
               -I$(G4BASE)/physics_lists/builders/include \
               -I$(G4BASE)/physics_lists/constructors/decay/include \
               -I$(G4BASE)/physics_lists/constructors/electromagnetic/include \
+              -I$(G4BASE)/physics_lists/constructors/exotic/include \
               -I$(G4BASE)/physics_lists/constructors/factory/include \
               -I$(G4BASE)/physics_lists/constructors/gamma_lepto_nuclear/include \
               -I$(G4BASE)/physics_lists/constructors/hadron_elastic/include \
@@ -106,6 +108,8 @@ ifndef INCFLAGS
               -I$(G4BASE)/processes/electromagnetic/dna/molecules/types/include \
               -I$(G4BASE)/processes/electromagnetic/pii/include \
               -I$(G4BASE)/processes/electromagnetic/polarisation/include \
+              -I$(G4BASE)/processes/exotic/cross_sections/include \
+              -I$(G4BASE)/processes/exotic/models/sexaquark/include \
               -I$(G4BASE)/processes/hadronic/cross_sections/include \
               -I$(G4BASE)/processes/hadronic/management/include \
               -I$(G4BASE)/processes/hadronic/models/abla/include \
@@ -191,7 +195,7 @@ ifdef G4EXLIB
   LDFLAGS += -L$(G4TMPDIR)
   ifdef SHAREDLIBS
     ifdef G4RUNPATHOPTION
-#     For the example dependent directory, keep the 
+#     For the example dependent directory, keep the
 #     path to the shared lib in the executable.
       LDFLAGS += $(G4RUNPATHOPTION)$(G4TMPDIR)
       LDFLAGS += $(G4RUNPATHOPTION)$(G4LIB)/$(G4SYSTEM)
@@ -219,7 +223,7 @@ ifdef G4EXLIB
     TARGETLIB  := -l$(G4TARGET)
   else
   # Windows
-    TARGETLIB  := lib$(G4TARGET).a   
+    TARGETLIB  := lib$(G4TARGET).a
   endif
 endif
 
@@ -301,7 +305,7 @@ else
 # Warning: do not add to LDLIBS2 with += because this causes it to be
 # expanded too soon.  Hence extra libraries must have a different name...
 # Extra libraries to resolve remaining circular dependencies...
-#  LDLIBS2EXTRA = 
+#  LDLIBS2EXTRA =
   endif
   # Bring all symbols in for libraries which requires this (templated factories).
   #
@@ -346,7 +350,7 @@ ifdef USER_DEFINED_LDLIBS
 else
 # Again, do not use := or +=.  See note on LDLIBS2 above.
   LDLIBS_PREFINAL = $(LDLIBS1) $(LDLIBS2) $(LDLIBS2EXTRA) $(LDLIBS3)
-# Version leaving out EXTRALIBS 
+# Version leaving out EXTRALIBS
   LDLIBS_KERNEL   = $(LDLIBS2) $(LDLIBS2EXTRA) $(LDLIBS3)
 endif
 LDLIBS_PREFINAL += $(LDLIBS4)
@@ -373,12 +377,12 @@ ifneq (,$(findstring WIN32-VC,$(G4SYSTEM)))
 else
   # Unix
   LDLIBS = $(TARGETLIB) $(LDLIBS_PREFINAL)
-  OUT   := -o 
+  OUT   := -o
   TARGOBJEXT := o
 endif
 
 ifdef transform-RPath
-# Invoke system specific transformation of 
+# Invoke system specific transformation of
 include $(G4INSTALL)/config/sys/$(G4SYSTEM)-runpath.gmk
 endif
 

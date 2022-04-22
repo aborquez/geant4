@@ -11,10 +11,10 @@ endif
 GLOBLIBS  = libG4geometry.lib libG4materials.lib libG4graphics_reps.lib
 GLOBLIBS += libG4intercoms.lib libG4global.lib
 
-SUBDIRS = management bosons leptons shortlived
+SUBDIRS = management bosons exotic leptons shortlived
 SUBDIRS += hadrons/mesons hadrons/barions hadrons/ions
-SUBDIRS += adjoint utils 
-SUBLIBS = G4partman G4bosons G4leptons G4shortlived
+SUBDIRS += adjoint utils
+SUBLIBS = G4partman G4bosons G4exotic G4leptons G4shortlived
 SUBLIBS += G4mesons G4baryons G4ions
 SUBLIBS += G4partadj G4partutils
 

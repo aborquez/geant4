@@ -76,6 +76,7 @@ GEANT4_DEFINE_MODULE(NAME G4phys_lists
     GRANULAR_DEPENDENCIES
         G4baryons
         G4bosons
+        G4exotic
         G4cuts
         G4decay
         G4digits
@@ -83,6 +84,8 @@ GEANT4_DEFINE_MODULE(NAME G4phys_lists
         G4emlowenergy
         G4emstandard
         G4emutils
+        G4exotic_xsect
+        G4exotic_sexaquark
         G4event
         G4geometrymng
         G4globman

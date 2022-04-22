@@ -13,6 +13,7 @@
 
 add_subdirectory(decay)
 add_subdirectory(electromagnetic)
+add_subdirectory(exotic)
 add_subdirectory(factory)
 add_subdirectory(gamma_lepto_nuclear)
 add_subdirectory(hadron_elastic)

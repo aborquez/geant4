@@ -6,6 +6,7 @@ name := G4physlist_ctor
 
 SUBDIRS  = decay
 SUBDIRS += electromagnetic
+SUBDIRS += exotic
 SUBDIRS += factory
 SUBDIRS += gamma_lepto_nuclear
 SUBDIRS += hadron_elastic
@@ -13,11 +14,12 @@ SUBDIRS += hadron_inelastic
 SUBDIRS += ions
 SUBDIRS += limiters
 SUBDIRS += stopping
- 
+
 
 
 SUBLIBS  = G4phys_ctor_decay
 SUBLIBS += G4phys_ctor_em
+SUBLIBS += G4phys_ctor_exotic
 SUBLIBS += G4phys_ctor_factory
 SUBLIBS += G4phys_ctor_glnuclear
 SUBLIBS += G4phys_ctor_helastic

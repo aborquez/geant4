@@ -23,6 +23,7 @@ if(NOT GEANT4_BUILD_GRANULAR_LIBS)
             builders/sources.cmake
 	    constructors/decay/sources.cmake
 	    constructors/electromagnetic/sources.cmake
+	    constructors/exotic/sources.cmake
 	    constructors/factory/sources.cmake
 	    constructors/gamma_lepto_nuclear/sources.cmake
 	    constructors/hadron_elastic/sources.cmake

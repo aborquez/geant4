@@ -10,6 +10,7 @@ geant4_global_library_target(NAME G4particles
   COMPONENTS
     adjoint/sources.cmake
     bosons/sources.cmake
+    exotic/sources.cmake
     hadrons/barions/sources.cmake
     hadrons/ions/sources.cmake
     hadrons/mesons/sources.cmake
